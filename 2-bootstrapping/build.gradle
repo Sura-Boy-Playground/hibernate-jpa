@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'lk.ijse.dep.orm'
+version '1.0.0'
+sourceCompatibility = 8
+
+//compileJava{
+//    options.release = 8
+//}
+//
+//java{
+//    toolchain{
+//        languageVersion = JavaLanguageVersion.of(8)
+//    }
+//}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.27.Final'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+}
+
