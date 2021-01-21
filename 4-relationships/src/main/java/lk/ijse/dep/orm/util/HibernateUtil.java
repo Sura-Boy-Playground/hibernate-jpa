@@ -1,7 +1,7 @@
 package lk.ijse.dep.orm.util;
 
-import lk.ijse.dep.orm.entity.Customer;
-import lk.ijse.dep.orm.entity.Student;
+import lk.ijse.dep.orm.entity.Employee;
+import lk.ijse.dep.orm.entity.Spouse;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -13,16 +13,16 @@ public class HibernateUtil {
 
     private static SessionFactory sessionFactory = buildSessionFactory();
 
-    private static SessionFactory buildSessionFactory(){
+    private static SessionFactory buildSessionFactory() {
         StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
                 .loadProperties("application.properties")
                 .build();
 
-        Metadata metadata = new MetadataSources( standardRegistry )
-                .addAnnotatedClass(Customer.class)
-                .addAnnotatedClass(Student.class)
+        Metadata metadata = new MetadataSources(standardRegistry)
+                .addAnnotatedClass(Employee.class)
+                .addAnnotatedClass(Spouse.class)
                 .getMetadataBuilder()
-                .applyImplicitNamingStrategy( ImplicitNamingStrategyJpaCompliantImpl.INSTANCE )
+                .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build();
 
         SessionFactory sessionFactory = metadata.getSessionFactoryBuilder()
@@ -30,7 +30,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
-    public static SessionFactory getSessionFactory(){
+    public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 }

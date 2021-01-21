@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'lk.ijse.dep.orm'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.27.Final'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+}

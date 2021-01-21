@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /* 10 */
-public class ContextDemo12 {
+public class ContextDemo13 {
 
     public static void main(String[] args) {
 
@@ -15,14 +15,14 @@ public class ContextDemo12 {
 
             session.beginTransaction();
 
-            Customer costa = new Customer(1, "Costa", "Galle");
-            session.detach(costa);
-            session.update(costa);
-            Customer clonedCosta = (Customer) session.merge(costa);
-            System.out.println(session.contains(clonedCosta));
-            System.out.println(clonedCosta == costa);
-            System.out.println(clonedCosta);
-            System.out.println("Before comitting");
+            Customer sajeewa = session.get(Customer.class, 2);
+            System.out.println(session.contains(sajeewa));
+            session.evict(sajeewa);
+            System.out.println("After Evict");
+            System.out.println(session.contains(sajeewa));
+            session.refresh(sajeewa);
+            System.out.println("After Refresh");
+            System.out.println(session.contains(sajeewa));
 
             session.getTransaction().commit();
         }
