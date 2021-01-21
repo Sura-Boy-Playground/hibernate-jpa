@@ -3,13 +3,14 @@ package lk.ijse.dep.orm.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name="spouse")
-public class Spouse {
+public class Spouse implements Serializable {
 
     @Id
     private String id;

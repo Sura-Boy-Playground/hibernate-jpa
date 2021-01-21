@@ -1,12 +1,15 @@
 package lk.ijse.dep.orm;
 
-import lk.ijse.dep.orm.entity.Employee;
-import lk.ijse.dep.orm.entity.Spouse;
+import lk.ijse.dep.orm.entity.Actor;
+import lk.ijse.dep.orm.entity.Movie;
 import lk.ijse.dep.orm.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class OneToOneDemo {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ManyToManyDemo2 {
 
     public static void main(String[] args) {
 
@@ -14,10 +17,11 @@ public class OneToOneDemo {
         Session session = sf.openSession()){
             session.beginTransaction();
 
-//            Employee emp = new Employee("E001", "Tharanga", "Galle");
-//            Spouse spouse = new Spouse("S001", "Kocchi Amma", "077-1234567", emp);
-//            session.save(emp);
-//            session.save(spouse);
+            Movie ageaBalea = session.get(Movie.class, "M002");
+            ageaBalea.getActors().clear();
+
+            Actor uvin = session.get(Actor.class, "A004");
+            session.remove(uvin);
 
             session.getTransaction().commit();
         }
