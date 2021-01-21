@@ -17,7 +17,7 @@ public class Spouse implements Serializable {
     private String name;
     private String contact;
     @OneToOne
-    @JoinColumn(name="employee_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name="employee_id", referencedColumnName = "id", nullable = false, unique = true)
     private Employee employee;
 
 }

@@ -18,6 +18,6 @@ public class Order implements Serializable {
     private String id;
     private Date date;
     @ManyToOne
-    @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 }

@@ -10,38 +10,37 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @ToString(exclude = "orders")
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
-@Table(name="customer")
-public class Customer implements Serializable {
+@Table(name="customer2")
+public class Customer2 implements Serializable {
     @Id
     private String id;
     private String name;
     private String address;
     @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    private List<Order2> orders;
 
-    public Customer(String id, String name, String address) {
+    public Customer2(String id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
 
-    public void addOrder(Order order){
+    public void addOrder(Order2 order){
         order.setCustomer(this);
-        getOrders().add(order);
+        this.getOrders().add(order);
     }
 
-//    public void removeOrder(Order order){
-//        order.setCustomer(null);
-//        getOrders().remove(order);
-//    }
+    public void removeOrder(Order2 order){
+        order.setCustomer(null);
+        this.getOrders().remove(order);
+    }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<Order2> orders) {
         orders.forEach(o-> o.setCustomer(this));
         this.orders = orders;
     }

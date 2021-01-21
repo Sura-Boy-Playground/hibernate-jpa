@@ -18,11 +18,17 @@ public class Employee implements Serializable {
     private String name;
     private String address;
     @OneToOne(mappedBy = "employee")
+//    @Setter(AccessLevel.NONE)
     private Spouse spouse;
 
     public Employee(String id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    public void setSpouse(Spouse spouse) {
+        spouse.setEmployee(this);
+        this.spouse = spouse;
     }
 }
