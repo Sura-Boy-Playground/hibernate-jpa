@@ -32,6 +32,9 @@ public class HibernateUtil {
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Teacher.class)
                 .addAnnotatedClass(Employee2.class)
+                .addAnnotatedClass(Member.class)
+                .addAnnotatedClass(Member2.class)
+                .addAnnotatedClass(Member3.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build();
